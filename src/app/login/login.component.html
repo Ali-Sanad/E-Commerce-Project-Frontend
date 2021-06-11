@@ -1,0 +1,31 @@
+<div style="min-width: 100%; min-height: 100%; margin-top: 15%; text-align: center;">
+  <br />
+  <div class="container" style="max-width: 600px;">
+    <h1 class="textval font-weight-bold">Login</h1>
+    <form #Loginrform="ngForm" name="Loginform" (ngSubmit)="Loginrform.valid && onSubmit(Loginrform)">
+      <input type="text" #userName="ngModel" [(ngModel)]="loginService.selectedUser.userName" name="userName"
+        placeholder="user name" required />
+      <div *ngIf="userName.touched && userName.errors" class="formElement">
+        <span *ngIf="userName.errors.required" class="validation-message">userName is required</span>
+        <!-- <span *ngIf="userName.errors.pattern" class="validation-message"></span> -->
+      </div>
+
+      <input type="password" #password="ngModel" [(ngModel)]="loginService.selectedUser.password" name="password"
+        placeholder="password" required />
+      <div *ngIf="password.touched && password.errors" class="formElement">
+        <span *ngIf="password.errors.required" class="validation-message">password is required</span>
+      </div>
+      <!-- <button  type="submit" class="btn btn-info" [routerLink]="['/profile',user._id]">Login</button> -->
+      <button type="submit" class="btn btn-info">Login</button>
+      <small class="float-right">New User ? <a routerLink="/registration">Register here</a>
+      </small>
+    </form>
+    <!-- Success message -->
+    <div class="success" *ngIf="showSucessMessage">Saved successfully</div>
+
+    <!-- Error message -->
+    <div class="alert" *ngIf="serverErrorMessages">
+      {{ serverErrorMessages }}
+    </div>
+  </div>
+</div>

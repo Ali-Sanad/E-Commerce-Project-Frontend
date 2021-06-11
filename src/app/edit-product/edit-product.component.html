@@ -1,0 +1,130 @@
+
+<div class="container p-5" id="prodDiv" *ngIf="product">
+  <h1 class="font-weight-bold">Edit product <span style="color: black;">{{product.name}}</span></h1>
+  <div class="row justify-content-center">
+    <!-- //Admin -->
+    <div style="float: none; margin: 0 auto">
+      <form
+        name="updateProduct"
+        #updateProduct="ngForm"
+      >
+        <p class="mt-3" id="label">Item name:</p>
+        <input
+          type="text"
+          name="name"
+          #name="ngModel"
+          [(ngModel)]="product.name"
+          required
+        />
+        <div
+          *ngIf="name.invalid && (name.dirty || !name.touched)"
+          class="alert alert-danger"
+        >
+          <div *ngIf="name.errors.required">Name is required.</div>
+        </div>
+        <p class="mt-3" id="label">Item Category:</p>
+        <input
+          type="text"
+          name="category"
+          #category="ngModel"
+          [(ngModel)]="product.category"
+        />
+
+        <p class="mt-3" id="label">Item Description:</p>
+        <input
+          type="text"
+          name="description"
+          #description="ngModel"
+          [(ngModel)]="product.description"
+          required
+        />
+        <p class="mt-3" id="label">Item Price:</p>
+        <input
+          type="text"
+          name="price"
+          #price="ngModel"
+          [(ngModel)]="product.price"
+          required
+        />
+        <p class="mt-3" id="label">Item Quantity:</p>
+        <input
+          type="text"
+          name="quantity"
+          #quantity="ngModel"
+          [(ngModel)]="product.quantity"
+          required
+        />
+        <p class="mt-3" id="label">Item Country:</p>
+        <input
+          type="text"
+          name="country"
+          #country="ngModel"
+          [(ngModel)]="product.country"
+          required
+        />
+        <p class="mt-3" id="label">Upload Item Image:</p>
+
+        <div style="width: 300px; height: 150px" class="mt-5">
+          <img src="http://localhost:3000/uploads/productImages/{{product.image}}" style="cursor: pointer; margin-bottom: 15px;" #t2 />
+          <input
+            type="file"
+            name="image"
+            (change)="change($event, t2)"
+
+            id="inputImage"
+          />
+        </div>
+
+        <br />
+        <!-- <a href="#" class="btn bgmine mt-3 mr-2">Add</a> -->
+        <button (click)="onSubmit()" class="btn bgmine mt-4 mr-4 mb-3">Add</button>
+        <button  class="btn bgmine mt-4 mb-3" (click)="reset(t2)">
+          Cancel
+        </button>
+        <!-- Success message -->
+        <div class="success" *ngIf="showSucessMessage">
+          <div
+            class="alert alert-success alert-dismissible fade show"
+            role="alert"
+          >
+            <strong>SUCCESS!</strong> Your data has been updated successfully ..
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="alert"
+              aria-label="Close"
+            ></button>
+          </div>
+        </div>
+
+        <!-- Error message -->
+        <div class="alert" *ngIf="serverErrorMessages">
+          <div
+            class="alert alert-warning alert-dismissible fade show"
+            role="alert"
+          >
+            <strong>!!</strong> {{ serverErrorMessages }}
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="alert"
+              aria-label="Close"
+            ></button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,23 @@
+#logo {
+  width:90px;
+  height:40px;
+  margin-left: 20px;
+}
+#Icon {
+  width:20px;
+  height:20px;
+}
+#IconMenu{
+  width:20px;
+  height:20px;
+  cursor: pointer;
+}
+#searchInput {
+  width:450px;
+  height:40px;
+}
+/*
+
+#fdiv {
+  height: 300px;
+} */

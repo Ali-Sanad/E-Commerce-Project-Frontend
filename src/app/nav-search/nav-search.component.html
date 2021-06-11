@@ -1,0 +1,50 @@
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav #drawer class="sidenav" fixedInViewport
+      [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+      [mode]="(isHandset$ | async) ? 'over' : 'side'"
+      [opened]="(isHandset$ | async) === false">
+    <mat-toolbar class="bgmine"><img src="../assets/img/logo2.png" alt="choco" id="logo">
+    </mat-toolbar>
+    <mat-nav-list>
+      <a mat-list-item href="#">Home</a>
+      <a mat-list-item href="#">About</a>
+      <a mat-list-item href="#">Collection</a>
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <mat-toolbar class="bgmine">
+      <button
+        type="button"
+        aria-label="Toggle sidenav"
+        mat-icon-button
+        (click)="drawer.toggle()"
+        *ngIf="isHandset$ | async">
+        <mat-icon aria-label="Side nav toggle icon"><img src="../assets/img/menu.png" alt="menu" id="IconMenu"></mat-icon>
+      </button>
+      <!-- <span>choco-proj</span> -->
+      <div class="container-fluid d-flex justify-content-between">
+         <div>
+
+         </div>
+
+        <div class="d-flex justify-content-between" id="navbarSupportedContent">
+          <form class="d-flex justify-content-between">
+            <input class="form-control me-2 shadow-sm  bg-white rounded" type="search" placeholder="What are you looking for?" aria-label="Search" id="searchInput">
+            <button class="btn shadow-sm rounded" type="button" data-live-search-takeover-cancel="" id="searchIcon"><img src="../assets/img/loupe.png" id="Icon"></button>
+          </form>
+
+        </div>
+        <div>
+          <button class="btn" type="submit"><img src="../assets/img/user.png" id="Icon"></button>
+          <button class="btn" type="submit"><img src="../assets/img/carts.png" id="Icon"></button>
+        </div>
+      </div>
+
+
+    </mat-toolbar>
+    <app-slider></app-slider>
+<app-cards></app-cards>
+<app-footer></app-footer>
+    <!-- Add Content Here -->
+  </mat-sidenav-content>
+</mat-sidenav-container>

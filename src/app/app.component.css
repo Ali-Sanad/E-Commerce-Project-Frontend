@@ -1,0 +1,9 @@
+::ng-deep .navCss nav {
+  background-color: #f9eff1;
+  border-bottom: 1px solid #dab4bd;
+}
+
+.nav-link {
+  color: #793425 !important;
+  font-weight: bold;
+}

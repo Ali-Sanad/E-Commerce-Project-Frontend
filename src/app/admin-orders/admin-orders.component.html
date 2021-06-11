@@ -1,0 +1,37 @@
+
+<div class="container w-50" style="margin-top: 10%;" id="box">
+  <div class="card-header d-flex align-items-center" style="margin-top: 10%; width: 50%;">
+    <h1>Control your Orders</h1>
+  </div >
+  <div class="row" *ngFor="let order of orders">
+      <div class="col-12 mt-3 " >
+          <div class="card p-2" style="width: 600px; height: auto; object-fit:scale-down;">
+
+          <div class="card ">
+              <div class="card-horizontal">
+
+                  <div class="card-body">
+                      <h2 class="card-title">{{order.userId.userName}}</h2>
+                      <h2 class="card-title">start Shipping:{{order.startShippingAt}}</h2>
+                      <div *ngFor = "let product of order.products">
+
+                          <h2 class="card-title" *ngIf="product.productId"><a [routerLink]="['/product-detail',product.productId._id]">product Name : {{product.productId.name}}</a></h2>
+                          <h2 class="card-title" *ngIf="product.productId">quantity: {{product.quantity}} </h2>
+                      </div>
+                      <h3 class="card-text">Price :{{order.totalPrice}}</h3>
+                  </div>
+              <div class=" d-flex align-items-center">
+                                <div class="dropdown">
+                    <button class="dropbtn">{{order.status}}</button>
+                    <div class="dropdown-content" >
+                      <a  (click)="changeState(order._id ,'pending')">Pending</a>
+                      <a  (click)="changeState(order._id,'accepted')">Accepted</a>
+                      <a  (click)="changeState(order._id,'rejected')">Rejected</a>
+                    </div>
+                  </div>
+              </div>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>

@@ -1,0 +1,26 @@
+
+<div class="container w-50" style="margin-top: 10%;" id="box">
+  <div class="card-header d-flex align-items-center" style="margin-top: 10%; width: 50%;">
+    <h1>Control your Products</h1>
+  </div>
+  <div class="row" *ngFor="let product of products" >
+      <div class="col-12 mt-3 " style="max-width: 600px; max-height: 200px; overflow: none;">
+          <div class="card d-flex align-items-between" style="width: 600px; height: 150px; object-fit:scale-down;">
+              <div class="card-horizontal">
+                  <div class="img-square-wrapper">
+                      <img class="" style="width: 150px; height: 150px; object-fit: contain;" src="http://localhost:3000/uploads/productImages/{{product.image}}" alt="Card image cap">
+                  </div>
+                  <div class="card-body">
+                      <h2 class="card-title">{{product.name}}</h2>
+                      <h3 class="card-text">Price : {{product.price}}</h3>
+                  </div>
+              <div class=" d-flex align-items-center">
+
+            <a [routerLink]="['/edit',product._id]"> <img src="../assets/img/edit.png"  alt="edit" id="logo"></a>
+            <a [routerLink]="['/delete',product._id]"> <img src="../assets/img/delete.png"  alt="delete" id="logo"></a>
+              </div>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>

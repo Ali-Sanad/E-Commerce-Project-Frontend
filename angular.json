@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "unit-test": {
+    "choco-proj": {
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -13,7 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/unit-test",
+            "outputPath": "dist/choco-proj",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -24,9 +24,13 @@
               "src/assets"
             ],
             "styles": [
+              "src/custom-theme.scss",
               "src/styles.css"
+
             ],
-            "scripts": []
+            "scripts": [
+
+            ]
           },
           "configurations": {
             "production": {
@@ -61,18 +65,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "unit-test:build"
+            "browserTarget": "choco-proj:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "unit-test:build:production"
+              "browserTarget": "choco-proj:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "unit-test:build"
+            "browserTarget": "choco-proj:build"
           }
         },
         "test": {
@@ -87,7 +91,9 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.css"
+              "src/styles.css",
+              "node_modules/font-awesome/css/font-awesome.css"
+
             ],
             "scripts": []
           }
@@ -109,16 +115,16 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "unit-test:serve"
+            "devServerTarget": "choco-proj:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "unit-test:serve:production"
+              "devServerTarget": "choco-proj:serve:production"
             }
           }
         }
       }
     }
   },
-  "defaultProject": "unit-test"
+  "defaultProject": "choco-proj"
 }

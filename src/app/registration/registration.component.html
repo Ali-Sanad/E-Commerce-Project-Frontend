@@ -1,0 +1,244 @@
+<div style="min-width: 100%;min-height: 100%; margin-top: 15%;">
+    <br>
+    <div
+        class="container"
+        style="max-width: 600px;"
+    >
+        <h2 class="textval">Register</h2>
+        <form
+            #Registerform="ngForm"
+            name="Registerform"
+            (ngSubmit)="Registerform.valid && onSubmit(Registerform)"
+        >
+
+            <input
+                type="text"
+                #email="ngModel"
+                [(ngModel)]="registrationService.selectedUser.email"
+                name="email"
+                placeholder="Email"
+                required
+                pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$">
+            <div
+                *ngIf="email.touched && email.errors"
+                class="formElement">
+                <span
+                    *ngIf="email.errors.required"
+                    class="validation-message" >
+                    email is required
+                </span>
+                <span
+                    *ngIf="email.errors.pattern"
+                    class="validation-message"   >
+                    invalid pattern for e-mail
+                </span>
+            </div>
+
+            <input
+                type="password"
+                #password="ngModel"
+                [(ngModel)]="registrationService.selectedUser.password"
+                name="password"
+                placeholder="password"
+                required
+            >
+            <div
+                *ngIf="password.touched && password.errors"
+                class="formElement" >
+                <span
+                    *ngIf="password.errors.required"
+                    class="validation-message" >
+                    password is required
+                </span>
+            </div>
+
+            <input
+                type="text"
+                #userName="ngModel"
+                [(ngModel)]="registrationService.selectedUser.userName"
+                name="userName"
+                placeholder="userName"
+                required >
+            <div
+                *ngIf="userName.touched && userName.errors"
+                class="formElement">
+                <span
+                    *ngIf="userName.errors.required"
+                    class="validation-message"  >
+                    userName is required
+                </span>
+            </div>
+            <input
+                type="text"
+                #firstName="ngModel"
+                [(ngModel)]="registrationService.selectedUser.firstName"
+                name="firstName"
+                placeholder="firstName"
+                required>
+            <div
+                *ngIf="firstName.touched && firstName.errors"
+                class="formElement" >
+                <span
+                    *ngIf="firstName.errors.required"
+                    class="validation-message" >
+                    firstName is required
+                </span>
+            </div>
+            <input
+                type="text"
+                #lastName="ngModel"
+                [(ngModel)]="registrationService.selectedUser.lastName"
+                name="lastName"
+                placeholder="lastName"
+                required >
+            <div
+                *ngIf="lastName.touched && lastName.errors"
+                class="formElement"
+  >
+                <span
+                    *ngIf="lastName.errors.required"
+                    class="validation-message"
+                >
+                    lastName is required
+                </span>
+
+            </div>
+            <input
+                type="number"
+                #age="ngModel"
+                [(ngModel)]="registrationService.selectedUser.age"
+                name="age"
+                placeholder="age"
+                required
+            >
+            <div
+                *ngIf="age.touched && age.errors"
+                class="formElement"
+            >
+                <span
+                    *ngIf="age.errors.required"
+                    class="validation-message"
+                >
+                    age is required
+                </span>
+
+            </div>
+
+            <input
+                type="text"
+                #phoneNumber="ngModel"
+                [(ngModel)]="registrationService.selectedUser.phoneNumber"
+                name="phoneNumber"
+                placeholder="phoneNumber"
+                required
+            >
+            <div
+                *ngIf="phoneNumber.touched && phoneNumber.errors"
+                class="formElement"
+            >
+                <span
+                    *ngIf="phoneNumber.errors.required"
+                    class="validation-message"
+                >
+                    phoneNumber is required
+                </span>
+
+            </div>
+            <input
+                type="text"
+                #address="ngModel"
+                [(ngModel)]="registrationService.selectedUser.address"
+                name="address"
+                placeholder="address"
+                required
+            >
+            <div
+                *ngIf="address.touched && address.errors"
+                class="formElement"
+            >
+                <span
+                    *ngIf="address.errors.required"
+                    class="validation-message"
+                >
+                    address is required
+                </span>
+
+            </div>
+
+            <input
+                id="male"
+                type="radio"
+                name="gender"
+                value='male'
+                required
+                #gender="ngModel"
+                [(ngModel)]="registrationService.selectedUser.gender"
+            >
+            <label for="male">Male</label>
+            <br>
+            <input
+                id="female"
+                type="radio"
+                name='gender'
+                value='female'
+                required
+                #gender="ngModel"
+                [(ngModel)]="registrationService.selectedUser.gender"
+            >
+            <label for="female">Female</label>
+            <div *ngIf="address.touched && gender.errors">
+                <span *ngIf="gender.errors.required">gender is required</span>
+            </div>
+
+
+            <!-- image -->
+            <div>
+                <img
+                    src="/assets/images/signUp.png"
+                    (click)='done(image)'
+                    #image2
+                    style="height:20%; padding-top: 10px; padding-bottom: 10px;width: 20%;"
+                >
+            </div>
+            <div>
+                <input
+                    type="file"
+                    (change)='change($event,image2)'
+                    #image
+                    style="padding-top: 20px; padding-bottom: 20px;"
+                >
+            </div>
+
+            <!-- <button [disabled]="Registerform.form.invalid" type="submit" class="btn btn-info" >Register</button> -->
+            <button [disabled]="Registerform.form.invalid"
+                type="submit"
+                class="btn btn-info"
+                            >
+                Register
+            </button>
+            <small class="float-right">
+                Existing user ?
+                <a routerLink="/login">Login here</a>
+            </small>
+            <!-- <small class="float-right" [routerLink]='./login'>Existing user ? Login here</small> -->
+            <!-- <button  type="submit" class="btn btn-info" (click)="registerUser">Register</button> -->
+        </form>
+
+        <!-- Success message -->
+        <div
+            class="success"
+            *ngIf="showSucessMessage"
+        >
+            Saved successfully
+        </div>
+
+        <!-- Error message -->
+        <div
+            class="alert"
+            *ngIf="serverErrorMessages"
+        >
+            {{serverErrorMessages}}
+        </div>
+
+    </div>
+</div>

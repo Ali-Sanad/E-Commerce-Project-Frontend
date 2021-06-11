@@ -1,0 +1,17 @@
+input {
+  width: 50%;
+  margin: 10px;
+  outline: none;
+
+}
+
+button {
+  background-color: #dab4bd;
+  width: 100px;
+  height: auto;
+  border: none;
+  padding: 5px;
+  margin: 7px;
+
+
+}

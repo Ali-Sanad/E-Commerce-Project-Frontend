@@ -1,0 +1,41 @@
+
+<h1 class="d-flex justify-content-center m-5 font-weight-bold">-</h1>
+
+<form class="form-inline mr-auto justify-content-center w-100">
+  <input class="form-control mr-sm-1" type="text" placeholder="What do you want? . . ." aria-label="Search" (keyup)="onKey($event)">
+  <button class="btn rounded btn-sm my-0" type="submit" style="font-size: larger; color:#793425 ; background-color: #dab4bd;">Search</button>
+</form>
+<hr style="color: #dab4bd;">
+
+<div class="row justify-content-center">
+  <div class="col-md-4" *ngFor="let product of products">
+    <!--Card-->
+    <mdb-card cascade="true" narrower="true" class="pt-0 m-5" style="width: 300px; height: 550px;">
+
+      <!--Card image-->
+      <div class="view view-cascade overlay waves-light" style="max-width: 300px; max-height: 300px; overflow: hidden;" mdbWavesEffect>
+        <img style="width: 300px; height: 300px; object-fit:scale-down; cursor: pointer; " [routerLink]="['/product-detail',product._id]" src="http://localhost:3000/uploads/productImages/{{product.image}}">
+        <a>
+          <div class="mask rgba-white-slight"></div>
+        </a>
+      </div>
+      <hr style="color: #dab4bd;" class="m-0 p-0">
+
+      <!--/Card image-->
+
+      <mdb-card-body cascade="true" class="text-center pb-2 px-0">
+        <!--Card content-->
+        <h2 class="font-weight-bold" style="color: #793425;">{{product.name}}</h2>
+        <!--Title-->
+        <h2 class="card-title">{{product.price}} £E</h2>
+        <a mdbBtn style="background-color:#dab4bd; color:#793425"  class="font-weight-bold" *ngIf="user!='admin'"  [routerLink]="['/cart']" [state]="{ id:1 , name:'Angular'}"
+        [state]="{ id:product._id, name:product.name, image:product.image }"
+        mdbWavesEffect>Add to Cart</a>
+        <a mdbBtn class="btn mr-2 mb-2 mt-2 b2" [routerLink]="['/product-detail',product._id]" style="color:#793425; background-color:#f9eff1;">Quick Look</a>
+      </mdb-card-body>
+      <!--/.Card content-->
+
+    </mdb-card>
+    <!--/.Card-->
+  </div>
+</div>

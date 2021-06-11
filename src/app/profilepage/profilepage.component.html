@@ -1,0 +1,44 @@
+<div class="col-md-12" *ngIf="updatedProfile" style="margin-top: 10%;">
+
+  <div class="col-md-10" *ngIf="updatedProfile">
+  <div>
+    <img src="http://localhost:3000/uploads/userImages/{{ profile.image }}" (click)="done(image)" #image2
+      style="height: 20%; padding-top: 10px; padding-bottom: 10px; width: 20%" />
+  </div>
+  <div>
+    <input type="file" (change)="onFileSelect($event,image2)" #image style="padding-top: 20px; padding-bottom: 20px" />
+  </div>
+  <ul class="list-group">
+    <strong>Email:</strong>
+    <input class="list-group-item" name="email" ngDefaultControl
+      [(ngModel)]="updatedProfile.email" />
+      <strong>UserName:</strong>
+    <input class="list-group-item" name="userName" ngDefaultControl
+      [(ngModel)]="updatedProfile.userName" />
+      <strong>FirstName:</strong>
+    <input class="list-group-item" name="firstName" ngDefaultControl
+      [(ngModel)]="updatedProfile.firstName" />
+      <strong>LastName:</strong>
+    <input class="list-group-item" name="lastName" ngDefaultControl
+      [(ngModel)]="updatedProfile.lastName" />
+      <strong>Password:</strong>
+    <input type = "password" class="list-group-item" name="password" ngDefaultControl
+      [(ngModel)]="updatedProfile.password" (blur)="onBlur()" (focus)="onFocus()" />
+      <strong>confirmPassword:</strong>
+    <input type = "password" class="list-group-item" name="password" ngDefaultControl
+      [(ngModel)]="updatedProfile.password" (blur)="onBlur()" (focus)="onFocus()" />
+      <strong>Age:</strong>
+    <input class="list-group-item" name="age" ngDefaultControl [(ngModel)]="updatedProfile.age" />
+    <strong>PhoneNumber:</strong>
+    <input class="list-group-item" name="phoneNumber" ngDefaultControl
+      [(ngModel)]="updatedProfile.phoneNumber" />
+      <strong>Address:</strong>
+    <input class="list-group-item" name="address" ngDefaultControl
+      [(ngModel)]="updatedProfile.address" />
+  </ul>
+  <button class="font-weight-bold" (click)="save()">save</button>
+  <button class="font-weight-bold"(click)="reset(image2)">cancel</button>
+  <button class="font-weight-bold" (click)="snap()">go Back to last Edit</button>
+</div>
+</div>
+<!-- <input  type="text" #password="ngModel" [(ngModel)]={{profile.password}} name="password" value="" > -->

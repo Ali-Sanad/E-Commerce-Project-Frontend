@@ -1,0 +1,37 @@
+
+.wm {
+  width: 30% !important;
+  padding-right: 6px ;
+}
+
+a{
+
+  opacity: 1;
+  transition: 0.3s;
+ }
+ a:hover {opacity: 0.6}
+
+ img {
+  opacity: 1;
+  transition: 0.3s;
+ }
+img:hover {
+  opacity: 0.6
+}
+
+
+#logo {
+  width:40px;
+  height:40px;
+cursor: pointer;
+margin: 5px;
+}
+
+
+.btn {
+  border-radius: 40px 40px 0px 0px !important;
+}
+.b2 {
+  border-radius: 0px 0px 40px 40px  !important;
+
+}

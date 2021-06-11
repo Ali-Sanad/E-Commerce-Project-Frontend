@@ -1,0 +1,50 @@
+ #prodDiv{
+  width: auto !important;
+  height: auto !important;
+  border-radius: 0px 20px 0px 20px;
+  text-align: center;
+  margin-top: 10% !important;
+  margin-bottom: 0;
+box-shadow: 6px 6px 0px 0px rgba(218,180,189,0.8);
+
+}
+h1 {
+  color: #793425;
+}
+button {
+  /* text-align: center; */
+  width: 40%;
+ background-color:#dab4bd; color:#793425;
+ border-radius: 40px 40px 0px 0px !important;
+}
+
+
+
+ img {
+   width: 60% !important;
+   height: auto ;
+ }
+
+ a{
+  background-color: #dab4bd;
+    opacity: 1;
+  transition: 0.3s;
+  width: 20%;
+ }
+ a:hover {opacity: 0.6}
+
+ #label {
+  font-size: larger;
+  font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+   color: #351006;
+ }
+
+ input {
+   border: 1px solid #dab4bd;
+
+   border-top: none;
+   border-left: none;
+   border-right: none;
+   outline: none;
+   text-align: center;
+ }

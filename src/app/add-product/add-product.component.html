@@ -1,0 +1,78 @@
+<!-- <h2 class="font-weight-bold m-5 d-lg-flex justify-content-center" style="text-align: center;">Add new Product</h2> -->
+
+<div class="container p-5" id="prodDiv">
+  <h1 class="font-weight-bold">Add new product</h1>
+      <div class="row justify-content-center mt-3">
+                <!-- //Admin -->
+    <div style="float: none; margin: 0 auto;">
+<!-- Material form grid -->
+<form name="addProdForm" #addProdForm="ngForm" (ngSubmit)="onSubmit(addProdForm)">
+  <!-- Grid row -->
+
+
+  <div class="row">
+    <!-- Grid column -->
+    <div class="col">
+      <!-- Material input -->
+
+      <p class="mt-3" id="label">Item name:</p>
+      <input type="text" name="name"  #name="ngModel" [(ngModel)]="_ProductService.selectedProduct.name">
+      <p class="mt-3" id="label">Item Category:</p>
+      <input type="text" name="category"  #category="ngModel" [(ngModel)]="_ProductService.selectedProduct.category">
+
+      <p class="mt-3" id="label"> Item Description: </p>
+      <input type="text" name="description"  #description="ngModel" [(ngModel)]="_ProductService.selectedProduct.description">
+      <p class="mt-3" id="label"> Item Price:</p>
+      <input type="text" name="price" #price="ngModel" [(ngModel)]="_ProductService.selectedProduct.price">
+    </div>
+    <!-- Grid column -->
+
+
+
+
+    <!-- Grid column -->
+    <div class="col">
+      <!-- Material input -->
+
+
+
+      <p class="mt-3" id="label"> Item Quantity:</p>
+      <input type="text" name="quantity"  #quantity="ngModel" [(ngModel)]="_ProductService.selectedProduct.quantity">
+      <p class="mt-3" id="label"> Item Country:</p>
+      <input type="text" name="country" #country="ngModel" [(ngModel)]="_ProductService.selectedProduct.country">
+      <p class="mt-3" id="label">Upload Item Image:</p>
+
+
+    <div >
+        <input type="file" name="image" (change)='change($event,t2)' #t  id="inputImage" class="pt-5"/>
+    </div>
+
+    <div style="width: 120px; height: 120px;" class="d-inline mb-3">
+      <img src="" id="image"style="cursor: pointer; " (click)='done(t)' #t2 />
+  </div>
+
+    </div>
+
+    <!-- Grid column -->
+  </div>
+  <!-- Grid row -->
+</form>
+<!-- Material form grid -->
+<br>
+<!-- <a href="#" class="btn bgmine mt-3 mr-2">Add</a> -->
+<button class="btn bgmine  mr-4 mb-3" (click)="onSubmit(addProdForm)">Add</button>
+<button class="btn bgmine  mb-3" routerLink="/home">Cancel</button>
+<!-- Success message -->
+<div class="success " *ngIf="showSucessMessage">
+ Saved successfully
+</div>
+
+<!-- Error message -->
+<div class="alert" *ngIf="serverErrorMessages">
+ {{serverErrorMessages}}
+</div>
+
+
+</div>
+</div>
+</div>
